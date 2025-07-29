@@ -375,6 +375,10 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 1.5,
         ease: "power4.inOut",
       });
+
+      gsap.to("body", {
+        backgroundColor: "#dd5be1",
+      });
     }
   }
 
@@ -437,6 +441,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power2.inOut",
       });
     });
+
+    gsap.to("body", {
+      backgroundColor: "#f9f7e0",
+    });
   });
 
   closeSidebar.addEventListener("click", () => {
@@ -452,6 +460,10 @@ document.addEventListener("DOMContentLoaded", () => {
         stagger: 0.1,
         ease: "power2.inOut",
       });
+    });
+
+    gsap.to("body", {
+      backgroundColor: "#dd5be1",
     });
   });
 
