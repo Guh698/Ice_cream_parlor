@@ -14,7 +14,52 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="styles.css" />
-    <title>Ice Cream Shop | Buy Here</title>
+    <title>
+      Livelly Pâtisserie & Glaces | Artisanal Ice Cream in Paris, France
+    </title>
+    <meta
+      name="description"
+      content="Experience the finest artisanal ice cream and pastries at Livelly, located in the heart of Paris. A perfect treat for the whole family. Visit us today!"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "IceCreamShop",
+        "name": "Livelly Ice Cream Parlor",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "220 Rue de l'Université",
+          "addressLocality": "Paris",
+          "postalCode": "75007",
+          "addressCountry": "FR"
+        },
+        "telephone": "+5519993244478",
+        "url": "https://creativeicecreamparlor.netlify.app/",
+        "image": "https://res.cloudinary.com/dabshzrnj/image/upload/v1753197583/logoimg_wjvqq5.webp",
+        "priceRange": "€€",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "09:00",
+            "closes": "14:00"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="smoot-wrapper" id="smooth-wrapper">
@@ -22,13 +67,16 @@
         <main>
           <a href="#hero" id="hero-section"></a>
           <section class="hero">
+            <h1 class="visually-hidden">
+              Livelly Pâtisserie & Glaces in Paris
+            </h1>
             <p class="hero-phrase caveat-bold">Livelly Ice Cream Parlor</p>
             <div class="hero-animated-element">
               <img
                 class="hero-animated-IMG"
                 src="https://res.cloudinary.com/dabshzrnj/image/upload/v1753197665/iceCream_kykify.webp"
                 loading="eager"
-                alt="ice cream photo"
+                alt="vanilla ice cream photo"
               />
               <p class="hero-animated-text caveat-bold">
                 Refined place to be with family. Make good memories here.
@@ -103,6 +151,9 @@
           </section>
           <a href="#OurPlace" id="place-section"></a>
           <section class="place-galery">
+            <h2 class="visually-hidden">
+              Our Parisian Parlor and Kid-Friendly Space
+            </h2>
             <div class="ticker-wrap">
               <div class="ticker place-ticker">
                 <span>Our place Our place Our place Our place &nbsp;</span>
@@ -161,6 +212,9 @@
           </section>
           <a href="Menu" id="menu-section"></a>
           <section class="menu">
+            <h2 class="visually-hidden">
+              Our Menu of Artisanal Ice Creams and Desserts
+            </h2>
             <div class="menu-apresentation">
               <p class="caveat-bold">Experience all the desserts</p>
               <div class="ticker-wrap">
@@ -287,7 +341,8 @@
                       <a
                         href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
                         target="_blank"
-                        ><button>Reserve now</button></a
+                        class="btn"
+                        >Reserve now</a
                       >
                     </div>
                   </div>
@@ -297,6 +352,7 @@
           </section>
           <a href="#contact-section" id="contact-section"></a>
           <section class="contact">
+            <h2 class="visually-hidden">Our Contact and Social medias</h2>
             <div class="ticker-wrap">
               <div class="ticker">
                 <span>Contact Contact Contact Contact &nbsp;</span>
@@ -312,33 +368,39 @@
             </div>
             <div class="contact-social-media-info">
               <ul class="MediaIcons">
-                <a
-                  href="https://www.instagram.com/guhs_32/"
-                  target="_blank"
-                  class="socialBt1"
-                  id="socialBt1"
-                  aria-label="See my Instagram"
-                  ><li>
-                    <i class="fa-brands fa-instagram"></i></li
-                ></a>
-                <a
-                  href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
-                  target="_blank"
-                  class="socialBtn2"
-                  id="socialBt2"
-                  aria-label="Contact me via whatsapp"
-                  ><li>
-                    <i class="fa-brands fa-whatsapp"></i></li
-                ></a>
-                <a
-                  href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
-                  target="_blank"
-                  class="socialBtn3"
-                  id="socialBt3"
-                  aria-label="See my LinkedIn"
-                  ><li>
-                    <i class="fa-brands fa-linkedin-in"></i></li
-                ></a>
+                <li>
+                  <a
+                    href="https://www.instagram.com/guhs_32/"
+                    target="_blank"
+                    class="socialBt1"
+                    id="socialBt1"
+                    aria-label="See my Instagram"
+                  >
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
+                    target="_blank"
+                    class="socialBtn2"
+                    id="socialBt2"
+                    aria-label="Contact me via whatsapp"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
+                    target="_blank"
+                    class="socialBtn3"
+                    id="socialBt3"
+                    aria-label="See my LinkedIn"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </li>
               </ul>
             </div>
             <div class="contact-parllax-element"></div>
@@ -382,7 +444,7 @@
             </ul>
           </nav>
           <div class="footer-text-container">
-            <p class="footer-copy">©copy</p>
+            <p class="footer-copy">© 2025 Livelly Ice Cream</p>
             <div class="map">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d464.0223324900644!2d2.297269142414057!3d48.859990466201204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1752902278558!5m2!1spt-BR!2sbr"
@@ -406,16 +468,16 @@
               alt="ice cream parlor logo"
           /></a>
         </div>
-        <h1 class="hero-title">Ice Creams</h1>
+        <span class="hero-title">Ice Creams</span>
         <ul class="nav-links">
-          <li class="scroll-link" data-scroll="place-section">Our place</li>
-          <li class="scroll-link" data-scroll="menu-section">Menu</li>
-          <li class="scroll-link" data-scroll="contact-section">Contact</li>
+          <li class="scroll-link btn" data-scroll="place-section">Our place</li>
+          <li class="scroll-link btn" data-scroll="menu-section">Menu</li>
+          <li class="scroll-link btn" data-scroll="contact-section">Contact</li>
         </ul>
         <div class="nav-mobile-menu">
           <img
             src="https://res.cloudinary.com/dabshzrnj/image/upload/v1753197915/menuIcon_o1jdrh.webp"
-            alt=""
+            alt="open menu"
             loading="eager"
             class="side-bar-open"
           />
@@ -426,22 +488,25 @@
       <div class="close-mobile-menu">
         <img
           src="https://res.cloudinary.com/dabshzrnj/image/upload/v1753198067/closemenuicon_jkvs3y.webp"
-          alt=""
+          alt="close menu"
           class="side-bar-close"
         />
       </div>
       <ul class="mobile-side-bar-links">
-        <li class="scroll-link side-link" data-scroll="place-section">
+        <li class="scroll-link side-link btn" data-scroll="place-section">
           Our place
         </li>
-        <li class="scroll-link side-link" data-scroll="menu-section">Menu</li>
-        <li class="scroll-link side-link" data-scroll="contact-section">
+        <li class="scroll-link side-link btn" data-scroll="menu-section">
+          Menu
+        </li>
+        <li class="scroll-link side-link btn" data-scroll="contact-section">
           Contact
         </li>
         <a
           href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
           target="_blank"
-          ><button class="side-link">Reserve now</button></a
+          class="side-link btn"
+          >Reserve now</a
         >
       </ul>
       <div class="mobile-side-bar-address">Rue de l'Université, 220</div>

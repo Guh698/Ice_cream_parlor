@@ -52,6 +52,17 @@ body {
 }
 
 @media (min-width: 320px) {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
   header {
     pointer-events: none;
   }
@@ -96,6 +107,23 @@ body {
     display: none;
   }
 
+  .btn {
+    border: 3px solid var(--color-deep-purple);
+    border-bottom: 6px solid var(--color-deep-purple);
+    color: var(--color-deep-purple);
+    background-color: var(--color-butter-white);
+    border-radius: 0.5em;
+    padding: 0.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2.3rem;
+    cursor: pointer;
+    font-family: var(--futuraPT-bold);
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    pointer-events: auto;
+  }
+
   .mobile-side-bar {
     position: fixed;
     display: flex;
@@ -136,23 +164,6 @@ body {
     list-style: none;
   }
 
-  .mobile-side-bar ul li,
-  .mobile-side-bar button {
-    border: 3px solid var(--color-deep-purple);
-    border-bottom: 6px solid var(--color-deep-purple);
-    background-color: var(--color-butter-white);
-    color: var(--color-deep-purple);
-    border-radius: 0.5em;
-    padding: 0.3em;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 2.3rem;
-    letter-spacing: 0.05rem;
-    cursor: pointer;
-    font-family: var(--futuraPT-bold);
-    pointer-events: auto;
-  }
-
   .mobile-side-bar-address {
     padding: 2em 0em;
     font-family: var(--futuraPT-medium);
@@ -181,7 +192,7 @@ body {
     object-fit: cover;
   }
 
-  h1 {
+  .hero-title {
     display: none;
   }
 
@@ -562,25 +573,6 @@ body {
     height: 6em;
   }
 
-  .menu-footer button {
-    border: 3px solid var(--color-deep-purple);
-    border-bottom: 6px solid var(--color-deep-purple);
-    color: var(--color-deep-purple);
-    background-color: var(--dcolor-butter-white);
-    border-radius: 0.5em;
-    padding: 0.3em;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 2.3rem;
-    cursor: pointer;
-    font-family: var(--futuraPT-bold);
-    letter-spacing: 0.05rem;
-  }
-
-  .menu-footer button:hover {
-    border-bottom: 3px solid var(--color-deep-purple);
-  }
-
   .draggable-ice-cream {
     position: absolute;
     width: 150px;
@@ -666,9 +658,6 @@ body {
   .contact-social-media-info ul a {
     text-decoration: none;
     color: var(--color-deep-purple);
-  }
-
-  .contact-social-media-info ul li {
     display: flex;
     position: relative;
     padding: 13px 15px;
@@ -681,13 +670,14 @@ body {
     font-size: 2rem;
   }
 
-  .contact-social-media-info ul a li {
+  .contact-social-media-info ul a {
     transition: 0.5s ease;
     color: var(--color-peru-pink);
   }
 
-  .contact-social-media-info ul a:hover li {
+  .contact-social-media-info ul a:hover {
     color: var(--color-deep-purple);
+    background: var(--color-peru-pink);
   }
 
   .contact-social-media-info ul li:hover {
@@ -848,23 +838,7 @@ body {
     list-style: none;
   }
 
-  header nav ul li {
-    border: 3px solid var(--color-deep-purple);
-    border-bottom: 6px solid var(--color-deep-purple);
-    background-color: var(--color-butter-white);
-    color: var(--color-deep-purple);
-    border-radius: 0.5em;
-    padding: 0.3em;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 2.3rem;
-    letter-spacing: 0.05rem;
-    cursor: pointer;
-    font-family: var(--futuraPT-bold);
-    pointer-events: auto;
-  }
-
-  header nav ul li:hover {
+  .btn:hover {
     border-bottom: 3px solid var(--color-deep-purple);
   }
 
@@ -872,7 +846,7 @@ body {
     display: none;
   }
 
-  h1 {
+  .hero-title {
     position: absolute;
     justify-content: center;
     font-size: 16rem;
@@ -1125,7 +1099,7 @@ body {
     font-size: 7rem;
   }
 
-  .menu-footer button {
+  .menu-footer a {
     border: 5px solid var(--color-deep-purple);
     border-bottom: 8px solid var(--color-deep-purple);
     padding: 0.7em;
