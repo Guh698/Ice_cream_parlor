@@ -79,10 +79,36 @@
                 loading="lazy"
               />
             </div>
+            <div class="hero-parllax-element element7">
+              <img
+                src="https://res.cloudinary.com/dabshzrnj/image/upload/v1753197551/cartoonpicole_qkkx6r.webp"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <div class="hero-parllax-element element8">
+              <img
+                src="https://res.cloudinary.com/dabshzrnj/image/upload/v1753197548/cartoonacai_nwicua.webp"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <div class="hero-parllax-element element9">
+              <img
+                src="https://res.cloudinary.com/dabshzrnj/image/upload/v1753197550/cartoonnonut_x3odlt.webp"
+                alt=""
+                loading="lazy"
+              />
+            </div>
           </section>
           <a href="#OurPlace" id="place-section"></a>
           <section class="place-galery">
-            <h2>Our place</h2>
+            <div class="ticker-wrap">
+              <div class="ticker place-ticker">
+                <span>Our place Our place Our place Our place &nbsp;</span>
+                <span>Our place Our place Our place Our place &nbsp;</span>
+              </div>
+            </div>
             <div class="place-galery-cards">
               <div class="card card1">
                 <div class="place-galery-cardText TXT1">
@@ -184,7 +210,7 @@
                 <div class="menu-paper-items-container">
                   <div class="menu-paper-items">
                     <ul>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">
                           Ice Cream Scoop
                         </div>
@@ -194,7 +220,7 @@
                         </div>
                         <div class="menu-item-price caveat-bold">5</div>
                       </li>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">
                           Double Scoop
                         </div>
@@ -203,7 +229,7 @@
                         </div>
                         <div class="menu-item-price caveat-bold">8</div>
                       </li>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">
                           Waffle Cone
                         </div>
@@ -212,7 +238,7 @@
                         </div>
                         <div class="menu-item-price caveat-bold">+2</div>
                       </li>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">
                           Sundae Classic
                         </div>
@@ -225,7 +251,7 @@
                         </div>
                         <div class="menu-item-price caveat-bold">10</div>
                       </li>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">Milkshake</div>
                         <div class="menu-item-text">
                           <p>
@@ -236,14 +262,14 @@
                         </div>
                         <div class="menu-item-price caveat-bold">9</div>
                       </li>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">Affogato</div>
                         <div class="menu-item-text">
                           One scoop of vanilla drowned in a shot of espresso.
                         </div>
                         <div class="menu-item-price caveat-bold">12</div>
                       </li>
-                      <li>
+                      <li class="menu-paper-li-item">
                         <div class="menu-item-name caveat-bold">
                           Choco Dream
                         </div>
@@ -258,7 +284,11 @@
                   <div class="menu-footer">
                     <p class="caveat-bold">Ask About Custom Cakes & Catering</p>
                     <div class="menu-footer-btn-case">
-                      <button>Reserve now</button>
+                      <a
+                        href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
+                        target="_blank"
+                        ><button>Reserve now</button></a
+                      >
                     </div>
                   </div>
                 </div>
@@ -323,28 +353,28 @@
             </div>
           </div>
           <nav class="footer-nav">
-            <h2>Ice Creams</h2>
+            <h2 class="footer-title">Ice Creams</h2>
             <ul>
               <li
-                class="footer-nav-link1 scroll-link"
+                class="footer-nav-link1 link scroll-link"
                 data-scroll="place-section"
               >
                 Our place
               </li>
               <li
-                class="footer-nav-link2 scroll-link"
+                class="footer-nav-link2 link scroll-link"
                 data-scroll="menu-section"
               >
                 Menu
               </li>
               <li
-                class="footer-nav-link3 scroll-link"
+                class="footer-nav-link3 link scroll-link"
                 data-scroll="contact-section"
               >
                 Contact
               </li>
               <li
-                class="footer-nav-link4 scroll-link"
+                class="footer-nav-link4 link scroll-link"
                 data-scroll="hero-section"
               >
                 back to top
@@ -352,7 +382,7 @@
             </ul>
           </nav>
           <div class="footer-text-container">
-            <p>©copy</p>
+            <p class="footer-copy">©copy</p>
             <div class="map">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d464.0223324900644!2d2.297269142414057!3d48.859990466201204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1752902278558!5m2!1spt-BR!2sbr"
@@ -396,10 +426,9 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

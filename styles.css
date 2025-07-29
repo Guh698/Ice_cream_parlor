@@ -63,7 +63,7 @@ body {
     justify-content: space-between;
     top: 0;
     height: 10em;
-    padding: 2em 3em;
+    padding: 2em 1em;
     width: 100%;
   }
 
@@ -80,8 +80,8 @@ body {
   }
 
   .nav-mobile-menu {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
   }
 
   .nav-mobile-menu img {
@@ -108,7 +108,6 @@ body {
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    border: 1em solid var(--color-butter-white);
     background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1753197940/bgtexture_kpbi9o.webp);
     background-repeat: no-repeat;
     background-size: cover;
@@ -116,7 +115,8 @@ body {
   }
 
   .hero-phrase {
-    transform: translateY(150%);
+    position: absolute;
+    bottom: 2em;
     font-size: 3.5rem;
     color: var(--color-deep-purple);
   }
@@ -187,6 +187,12 @@ body {
     z-index: -1;
   }
 
+  .element7,
+  .element8,
+  .element9 {
+    display: none;
+  }
+
   .hero-animated-element::before {
     content: "";
     position: absolute;
@@ -200,11 +206,14 @@ body {
     opacity: 0.5;
   }
 
-  .hero-animated-element p {
+  .hero-animated-text {
     position: absolute;
     width: 100%;
+    max-width: 800px;
+    text-align: center;
+    word-break: normal;
+    overflow-wrap: break-word;
     font-size: 3.5rem;
-    opacity: 0;
     color: var(--color-deep-purple);
   }
 
@@ -240,11 +249,26 @@ body {
     background-color: var(--color-deep-purple);
   }
 
-  .place-galery h2 {
-    font-size: 7rem;
+  .ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+
+  .ticker {
+    display: flex;
+    width: fit-content;
+  }
+
+  .ticker span {
+    font-size: 13rem;
     font-family: var(--futuraPT-extra-bold);
     font-weight: bold;
     white-space: nowrap;
+    color: var(--color-deep-purple);
+  }
+
+  .place-ticker span {
     color: var(--color-peru-pink);
   }
 
@@ -335,25 +359,6 @@ body {
 
   .menu-apresentation p {
     font-size: 3.5rem;
-    color: var(--color-deep-purple);
-  }
-
-  .ticker-wrap {
-    width: 100%;
-    overflow: hidden;
-    padding: 2rem 0;
-  }
-
-  .ticker {
-    display: flex;
-    width: fit-content;
-  }
-
-  .ticker span {
-    font-size: 13rem;
-    font-family: var(--futuraPT-extra-bold);
-    font-weight: bold;
-    white-space: nowrap;
     color: var(--color-deep-purple);
   }
 
@@ -477,13 +482,13 @@ body {
     color: var(--color-deep-purple);
     background-color: var(--dcolor-butter-white);
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 0.3em;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 2.3rem;
     cursor: pointer;
     font-family: var(--futuraPT-bold);
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.05rem;
   }
 
   .menu-footer button:hover {
@@ -744,6 +749,10 @@ body {
     display: none;
   }
 
+  header nav {
+    padding: 2em 3em;
+  }
+
   header nav ul {
     display: flex;
     gap: 1em;
@@ -759,11 +768,11 @@ body {
     background-color: var(--color-butter-white);
     color: var(--color-deep-purple);
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 0.3em;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
+    font-size: 2.3rem;
+    letter-spacing: 0.05rem;
     cursor: pointer;
     font-family: var(--futuraPT-bold);
     pointer-events: auto;
@@ -824,12 +833,33 @@ body {
 
   .element5 {
     left: 40%;
-    transform: scale(1.5) translateX(-40%) rotate(-15deg);
+    transform: scale(1.2) translateX(-40%) rotate(-15deg);
   }
 
   .element6 {
     right: 40%;
-    transform: scale(1.5) translateX(40%) rotate(15deg);
+    transform: scale(1.2) translateX(40%) rotate(15deg);
+  }
+
+  .element7 {
+    display: block;
+    left: 30%;
+    top: 40%;
+    transform: scale(0.5) rotate(-10deg) translateX(-30%);
+  }
+
+  .element8 {
+    display: block;
+    left: 50%;
+    top: 40%;
+    transform: scale(0.5) rotate(7deg) translateX(-50%);
+  }
+
+  .element9 {
+    display: block;
+    left: 10%;
+    top: 45%;
+    transform: scale(0.2) rotate(-15deg) translateX(-10%);
   }
 
   .hero-animated-element::before {

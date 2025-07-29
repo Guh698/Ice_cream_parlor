@@ -3,10 +3,17 @@ gsap.registerPlugin(
   ScrollSmoother,
   ScrollToPlugin,
   Draggable,
-  InertiaPlugin
+  InertiaPlugin,
+  SplitText
 );
 
 document.addEventListener("DOMContentLoaded", () => {
+  let mySplitText = new SplitText(".hero-animated-text", { type: "chars" });
+  let chars = mySplitText.chars;
+  let mySplitTextFooter = new SplitText(".footer-title", {
+    type: "chars",
+  });
+  let charsFooter = mySplitTextFooter.chars;
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
@@ -35,6 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
     scale: 1.2,
   });
 
+  gsap.set([".element7, .element8, .element9"], {
+    y: "100%",
+    opacity: 0,
+  });
+
+  gsap.set(chars, {
+    opacity: 0,
+  });
+
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".hero",
@@ -45,10 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  tl.to(".hero-phrase", {
-    opacity: 0,
-    y: "-100%",
-  });
+  if (!isMobile()) {
+    tl.to(".hero-phrase", {
+      opacity: 0,
+      y: "-100%",
+    });
+  } else {
+    tl.to(".hero-phrase", {
+      opacity: 0,
+    });
+  }
 
   tl.to(
     [".element1, .element2, .element3, .element4"],
@@ -86,11 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   tl.to(
-    ".hero-animated-text",
+    chars,
     {
       opacity: 1,
+      stagger: 0.1,
+      duration: 1,
     },
-    "+=1"
+    "<"
   );
 
   tl.to(
@@ -121,19 +145,16 @@ document.addEventListener("DOMContentLoaded", () => {
     "<"
   );
 
-  tl.to(
-    ".hero-animated-text",
-    {
-      opacity: 0,
-    },
-    "+=1"
-  );
+  tl.to(["body"], {
+    duration: 2,
+    backgroundColor: "#dd5be1",
+  });
 
   tl.to(
-    ["body"],
+    chars,
     {
-      duration: 2,
-      backgroundColor: "#dd5be1",
+      opacity: 0,
+      duration: 1,
     },
     "<"
   );
@@ -178,7 +199,17 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.to(".hero-menu-btn", {
     opacity: 1,
     pointerEvents: "auto",
+    duration: 4,
   });
+
+  if (!isMobile()) {
+    tl.to([".element7, .element8, .element9"], {
+      y: "-10%",
+      opacity: 1,
+      duration: 2,
+      stagger: 0.5,
+    });
+  }
 
   let tl2 = gsap.timeline({
     scrollTrigger: {
@@ -194,15 +225,18 @@ document.addEventListener("DOMContentLoaded", () => {
   tl2.to(".card3", {
     rotate: 0,
     x: "-115%",
+    duration: 2,
   });
 
   tl2.to(".card2", {
     rotate: 0,
     x: "115%",
+    duration: 2,
   });
 
   tl2.to(".card1", {
     rotate: 0,
+    duration: 2,
   });
 
   gsap.to(".ticker", {
@@ -212,19 +246,39 @@ document.addEventListener("DOMContentLoaded", () => {
     repeat: -1,
   });
 
-  gsap.to(".menu-items-container", {
-    scrollTrigger: {
-      trigger: ".menu-apresentation",
-      start: "top center",
-      end: "bottom center",
-      scrub: true,
-    },
-    width: "100%",
+  if (!isMobile()) {
+    gsap.to(".menu-items-container", {
+      scrollTrigger: {
+        trigger: ".menu-apresentation",
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+      },
+      width: "100%",
+    });
+  } else {
+    gsap.set(".menu-items-container", {
+      width: "100%",
+    });
+  }
+
+  const items = document.querySelectorAll(".draggable-ice-cream");
+  const liItems = document.querySelectorAll(".menu-paper-li-item");
+
+  items.forEach((DraggableItem) => {
+    Draggable.create(DraggableItem, {
+      bounds: ".menu-items-container",
+      inertia: true,
+    });
   });
 
-  Draggable.create([".item1, .item2, .item3, .item4, .item5"], {
-    bounds: ".menu-items-container",
-    inertia: true,
+  gsap.set(charsFooter, {
+    opacity: 0,
+    y: "-100%",
+  });
+
+  gsap.set([".link,.footer-copy, .map"], {
+    opacity: 0,
   });
 
   let tl3 = gsap.timeline({
@@ -234,6 +288,20 @@ document.addEventListener("DOMContentLoaded", () => {
       end: "bottom top",
       scrub: true,
       ease: "power2.inOut",
+    },
+    onComplete: () => {
+      gsap.to(charsFooter, {
+        opacity: 1,
+        y: "0%",
+        duration: 0.8,
+        ease: "power4.inOut",
+        stagger: 0.08,
+      });
+
+      gsap.to([".link,.footer-copy, .map"], {
+        opacity: 1,
+        delay: 1,
+      });
     },
   });
 
@@ -306,6 +374,16 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     onLeaveBack: () => {
       gsap.to("header nav", { y: "0%", ease: "power4.inOut" });
+      gsap.to(charsFooter, {
+        opacity: 0,
+        y: "-100%",
+        duration: 0.2,
+        stagger: 0.03,
+      });
+
+      gsap.to([".link,.footer-copy, .map"], {
+        opacity: 0,
+      });
     },
   });
 });
