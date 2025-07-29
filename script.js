@@ -26,6 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return /Mobi|Android|iPhone/i.test(navigator.userAgent);
   }
 
+  function pauseScroll() {
+    smoother.paused(true);
+  }
+
+  function resumeScroll() {
+    smoother.paused(false);
+  }
+
   gsap.to(".hero-title", {
     scrollTrigger: {
       trigger: ".nav-logo",
@@ -349,6 +357,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function scrollToId(id) {
     const element = document.querySelector(`#${id}`);
     if (element) {
+      resumeScroll();
+      gsap.to(".mobile-side-bar", {
+        x: "100%",
+        ease: "elastic.out(0.5, 1)",
+      });
+      sideLinks.forEach((sideLink) => {
+        gsap.to(sideLink, {
+          opacity: 0,
+          x: "100%",
+          stagger: 0.1,
+          ease: "power2.inOut",
+        });
+      });
       gsap.to(window, {
         scrollTo: element,
         duration: 1.5,
@@ -385,5 +406,59 @@ document.addEventListener("DOMContentLoaded", () => {
         opacity: 0,
       });
     },
+  });
+
+  //mobile sidebar
+  const openSidebar = document.querySelector(".side-bar-open");
+  const closeSidebar = document.querySelector(".side-bar-close");
+  const sideLinks = document.querySelectorAll(".side-link");
+
+  sideLinks.forEach((sideLink) => {
+    gsap.set(sideLink, {
+      opacity: 0,
+      x: "100%",
+      stagger: 0.1,
+      ease: "power2.inOut",
+    });
+  });
+
+  openSidebar.addEventListener("click", () => {
+    pauseScroll();
+    gsap.to(".mobile-side-bar", {
+      x: 0,
+      ease: "elastic.out(0.5, 1)",
+    });
+
+    sideLinks.forEach((sideLink) => {
+      gsap.to(sideLink, {
+        opacity: 1,
+        x: 0,
+        stagger: 0.1,
+        ease: "power2.inOut",
+      });
+    });
+  });
+
+  closeSidebar.addEventListener("click", () => {
+    resumeScroll();
+    gsap.to(".mobile-side-bar", {
+      x: "100%",
+      ease: "elastic.out(0.5, 1)",
+    });
+    sideLinks.forEach((sideLink) => {
+      gsap.to(sideLink, {
+        opacity: 0,
+        x: "100%",
+        stagger: 0.1,
+        ease: "power2.inOut",
+      });
+    });
+  });
+
+  gsap.to(".mobile-side-bar-animated-element img", {
+    rotation: 360,
+    duration: 9,
+    ease: "none",
+    repeat: -1,
   });
 });
