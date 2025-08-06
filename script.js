@@ -34,6 +34,94 @@ document.addEventListener("DOMContentLoaded", () => {
     smoother.paused(false);
   }
 
+  let loadingTL = gsap.timeline({});
+
+  gsap.set(
+    [".hero p, .hero-animated-element, .hero-parllax-element, header "],
+    {
+      opacity: 0,
+    }
+  );
+
+  gsap.to(".donut img", {
+    rotation: 360,
+    duration: 9,
+    ease: "none",
+    repeat: -1,
+  });
+
+  loadingTL
+    .to(".loading-bar-content", {
+      duration: 1.8,
+      ease: "power4.inOut",
+      x: "0%",
+    })
+    .to(
+      ".loading-screen-dark-content",
+      {
+        ease: "power4.inOut",
+        duration: 1.5,
+        y: "0%",
+      },
+      "-=0.6"
+    )
+    .to(
+      ".hand",
+      {
+        duration: 1,
+        ease: "power2.inOut",
+        y: "0%",
+      },
+      "-=1"
+    )
+    .to(".hand-1", {
+      display: "none",
+    })
+    .to(".hand-2", {
+      display: "block",
+    })
+    .to(
+      ".donut",
+      {
+        y: "-10%",
+        duration: 0,
+        ease: "none",
+      },
+      "<"
+    )
+    .to(".hand", {
+      duration: 1,
+      ease: "power2.inOut",
+      y: "-150%",
+    })
+    .to(
+      ".donut",
+      {
+        duration: 0.8,
+        ease: "power2.inOut",
+        y: "-150%",
+      },
+      "<"
+    )
+    .to(
+      ".loading-screen",
+      {
+        duration: 0.5,
+        ease: "power4.inOut",
+        y: "-150%",
+      },
+      "<"
+    )
+    .to(
+      [
+        ".hero p, .hero-animated-element, .element1, .element2, .element3, .element4, .element5, .element6, header ",
+      ],
+      {
+        opacity: 1,
+      },
+      "-=0.8"
+    );
+
   gsap.to(".hero-title", {
     scrollTrigger: {
       trigger: ".nav-logo",
@@ -301,14 +389,13 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.to(charsFooter, {
         opacity: 1,
         y: "0%",
-        duration: 0.8,
-        ease: "power4.inOut",
-        stagger: 0.08,
+        duration: 0.3,
+        stagger: 0.06,
       });
 
       gsap.to([".link,.footer-copy, .map"], {
         opacity: 1,
-        delay: 1,
+        delay: 0.6,
       });
     },
   });
@@ -409,6 +496,34 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.to([".link,.footer-copy, .map"], {
         opacity: 0,
       });
+    },
+  });
+
+  ScrollTrigger.create({
+    trigger: "#place-section",
+    start: "top center",
+    scrub: true,
+
+    onEnter: () => {
+      gsap.to(".hero-title", { y: "-150%", ease: "power4.inOut" });
+    },
+
+    onLeaveBack: () => {
+      gsap.to(".hero-title", { y: "0%", ease: "power4.inOut" });
+    },
+  });
+
+  ScrollTrigger.create({
+    trigger: "#menu-section",
+    start: "top center",
+    scrub: true,
+
+    onEnter: () => {
+      gsap.to(".hero-title", { y: "0%", ease: "power4.inOut" });
+    },
+
+    onLeaveBack: () => {
+      gsap.to(".hero-title", { y: "-150%", ease: "power4.inOut" });
     },
   });
 
