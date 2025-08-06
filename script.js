@@ -8,6 +8,7 @@ gsap.registerPlugin(
 );
 
 document.addEventListener("DOMContentLoaded", () => {
+  let loadingTL = gsap.timeline({});
   let mySplitText = new SplitText(".hero-animated-text", { type: "chars" });
   let chars = mySplitText.chars;
   let mySplitTextFooter = new SplitText(".footer-title", {
@@ -34,15 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     smoother.paused(false);
   }
 
-  let loadingTL = gsap.timeline({});
-
-  gsap.set(
-    [".hero p, .hero-animated-element, .hero-parllax-element, header "],
-    {
-      opacity: 0,
-    }
-  );
-
   gsap.to(".donut img", {
     rotation: 360,
     duration: 9,
@@ -50,7 +42,35 @@ document.addEventListener("DOMContentLoaded", () => {
     repeat: -1,
   });
 
+  gsap.to(".hero-title", {
+    scrollTrigger: {
+      trigger: ".nav-logo",
+      start: "top top",
+      scrub: 1,
+    },
+    fontSize: "4rem",
+    y: "10%",
+  });
+
+  gsap.set(".hero-animated-element img", {
+    y: "-10%",
+    rotate: "5deg",
+    scale: 1.2,
+  });
+
+  gsap.set([".element7, .element8, .element9"], {
+    y: "100%",
+    opacity: 0,
+  });
+
+  gsap.set(chars, {
+    opacity: 0,
+  });
+
   loadingTL
+    .to([".hero p, .hero-animated-element, .hero-parllax-element, header "], {
+      opacity: 0,
+    })
     .to(".loading-bar-content", {
       duration: 1.8,
       ease: "power4.inOut",
@@ -121,31 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       "-=0.8"
     );
-
-  gsap.to(".hero-title", {
-    scrollTrigger: {
-      trigger: ".nav-logo",
-      start: "top top",
-      scrub: 1,
-    },
-    fontSize: "4rem",
-    y: "10%",
-  });
-
-  gsap.set(".hero-animated-element img", {
-    y: "-10%",
-    rotate: "5deg",
-    scale: 1.2,
-  });
-
-  gsap.set([".element7, .element8, .element9"], {
-    y: "100%",
-    opacity: 0,
-  });
-
-  gsap.set(chars, {
-    opacity: 0,
-  });
 
   let tl = gsap.timeline({
     scrollTrigger: {

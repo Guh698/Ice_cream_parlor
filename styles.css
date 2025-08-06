@@ -272,7 +272,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
     background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1753197940/bgtexture_kpbi9o.webp);
     background-repeat: no-repeat;
@@ -282,7 +282,7 @@ body {
 
   .hero-phrase {
     position: absolute;
-    bottom: 2em;
+    bottom: 1em;
     font-size: 3.5rem;
     color: var(--color-deep-purple);
   }
@@ -930,6 +930,7 @@ body {
 
   .hero-phrase {
     font-size: 6rem;
+    bottom: 0.3em;
   }
 
   .hero-animated-element img {
