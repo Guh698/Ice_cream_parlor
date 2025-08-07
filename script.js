@@ -9,7 +9,9 @@ gsap.registerPlugin(
 
 document.addEventListener("DOMContentLoaded", () => {
   let loadingTL = gsap.timeline({});
-  let mySplitText = new SplitText(".hero-animated-text", { type: "chars" });
+  let mySplitText = new SplitText(".hero-animated-text", {
+    type: "words, chars",
+  });
   let chars = mySplitText.chars;
   let mySplitTextFooter = new SplitText(".footer-title", {
     type: "chars",
@@ -219,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   tl.to(
-    "body",
+    ".hero",
     {
       duration: 2,
       backgroundColor: "#f9f7e0",
@@ -236,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "<"
   );
 
-  tl.to(["body"], {
+  tl.to(".hero", {
     duration: 2,
     backgroundColor: "#dd5be1",
   });
@@ -270,7 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     tl.to(".hero-animated-element", {
       y: "-5%",
-      x: "45%",
       scale: 1.3,
       duration: 2,
       ease: "power1.inOut",
@@ -457,10 +458,6 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 1.5,
         ease: "power4.inOut",
       });
-
-      gsap.to("body", {
-        backgroundColor: "#dd5be1",
-      });
     }
   }
 
@@ -551,10 +548,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power2.inOut",
       });
     });
-
-    gsap.to("body", {
-      backgroundColor: "#f9f7e0",
-    });
   });
 
   closeSidebar.addEventListener("click", () => {
@@ -570,10 +563,6 @@ document.addEventListener("DOMContentLoaded", () => {
         stagger: 0.1,
         ease: "power2.inOut",
       });
-    });
-
-    gsap.to("body", {
-      backgroundColor: "#dd5be1",
     });
   });
 
