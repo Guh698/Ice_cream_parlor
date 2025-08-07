@@ -8,7 +8,11 @@ gsap.registerPlugin(
 );
 
 document.addEventListener("DOMContentLoaded", () => {
-  let loadingTL = gsap.timeline({});
+  let loadingTL = gsap.timeline({
+    onComplete: () => {
+      resumeScroll();
+    },
+  });
   let mySplitText = new SplitText(".hero-animated-text", {
     type: "words, chars",
   });
@@ -36,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function resumeScroll() {
     smoother.paused(false);
   }
+
+  pauseScroll();
 
   gsap.to(".donut img", {
     rotation: 360,
