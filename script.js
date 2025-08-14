@@ -8,6 +8,7 @@ gsap.registerPlugin(
 );
 
 document.addEventListener("DOMContentLoaded", () => {
+  const xIcon = document.getElementById("close-message");
   let loadingTL = gsap.timeline({
     onComplete: () => {
       resumeScroll();
@@ -41,13 +42,101 @@ document.addEventListener("DOMContentLoaded", () => {
     smoother.paused(false);
   }
 
+  function loadingScreen() {
+    gsap.to(".donut img", {
+      rotation: 360,
+      duration: 9,
+      ease: "none",
+      repeat: -1,
+    });
+
+    gsap.set(".hero-animated-element img", {
+      y: "-10%",
+      rotate: "5deg",
+      scale: 1.2,
+    });
+
+    loadingTL
+      .to(".loading-bar-content", {
+        duration: 1.8,
+        ease: "power4.inOut",
+        x: "0%",
+      })
+      .to(
+        ".loading-screen-dark-content",
+        {
+          ease: "power4.inOut",
+          duration: 1.5,
+          y: "0%",
+        },
+        "-=0.6"
+      )
+      .to(
+        ".hand",
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: "0%",
+        },
+        "-=1"
+      )
+      .to(".hand-1", {
+        display: "none",
+      })
+      .to(".hand-2", {
+        display: "block",
+      })
+      .to(
+        ".donut",
+        {
+          y: "-10%",
+          duration: 0,
+          ease: "none",
+        },
+        "<"
+      )
+      .to(".hand", {
+        duration: 1,
+        ease: "power2.inOut",
+        y: "-150%",
+      })
+      .to(
+        ".donut",
+        {
+          duration: 0.8,
+          ease: "power2.inOut",
+          y: "-150%",
+        },
+        "<"
+      )
+      .to(
+        ".loading-screen",
+        {
+          duration: 0.5,
+          ease: "power4.inOut",
+          y: "-150%",
+        },
+        "<"
+      )
+      .to(
+        ".hero-overlay",
+        {
+          opacity: 0,
+        },
+        "-=0.8"
+      );
+  }
+
   pauseScroll();
 
-  gsap.to(".donut img", {
-    rotation: 360,
-    duration: 9,
-    ease: "none",
-    repeat: -1,
+  loadingScreen();
+
+  gsap.set([".element7, .element8, .element9"], {
+    y: "100%",
+  });
+
+  gsap.set(chars, {
+    opacity: 0,
   });
 
   gsap.to(".hero-title", {
@@ -59,96 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fontSize: "4rem",
     y: "10%",
   });
-
-  gsap.set(".hero-animated-element img", {
-    y: "-10%",
-    rotate: "5deg",
-    scale: 1.2,
-  });
-
-  gsap.set([".element7, .element8, .element9"], {
-    y: "100%",
-    opacity: 0,
-  });
-
-  gsap.set(chars, {
-    opacity: 0,
-  });
-
-  loadingTL
-    .to([".hero p, .hero-animated-element, .hero-parllax-element, header "], {
-      opacity: 0,
-    })
-    .to(".loading-bar-content", {
-      duration: 1.8,
-      ease: "power4.inOut",
-      x: "0%",
-    })
-    .to(
-      ".loading-screen-dark-content",
-      {
-        ease: "power4.inOut",
-        duration: 1.5,
-        y: "0%",
-      },
-      "-=0.6"
-    )
-    .to(
-      ".hand",
-      {
-        duration: 1,
-        ease: "power2.inOut",
-        y: "0%",
-      },
-      "-=1"
-    )
-    .to(".hand-1", {
-      display: "none",
-    })
-    .to(".hand-2", {
-      display: "block",
-    })
-    .to(
-      ".donut",
-      {
-        y: "-10%",
-        duration: 0,
-        ease: "none",
-      },
-      "<"
-    )
-    .to(".hand", {
-      duration: 1,
-      ease: "power2.inOut",
-      y: "-150%",
-    })
-    .to(
-      ".donut",
-      {
-        duration: 0.8,
-        ease: "power2.inOut",
-        y: "-150%",
-      },
-      "<"
-    )
-    .to(
-      ".loading-screen",
-      {
-        duration: 0.5,
-        ease: "power4.inOut",
-        y: "-150%",
-      },
-      "<"
-    )
-    .to(
-      [
-        ".hero p, .hero-animated-element, .element1, .element2, .element3, .element4, .element5, .element6, header ",
-      ],
-      {
-        opacity: 1,
-      },
-      "-=0.8"
-    );
 
   let tl = gsap.timeline({
     scrollTrigger: {
@@ -359,6 +358,25 @@ document.addEventListener("DOMContentLoaded", () => {
       width: "100%",
     });
   }
+
+  gsap.to(".menu-message-box", {
+    scrollTrigger: {
+      trigger: ".menu-apresentation",
+      start: "top center",
+      once: true,
+    },
+    x: 0,
+    duration: 0.8,
+    ease: "elastic.out(1, 0.4)",
+  });
+
+  xIcon.addEventListener("click", () => {
+    gsap.to(".menu-message-box", {
+      x: "150%",
+      duration: 0.8,
+      ease: "elastic.out(1, 0.4)",
+    });
+  });
 
   const items = document.querySelectorAll(".draggable-ice-cream");
   const liItems = document.querySelectorAll(".menu-paper-li-item");
