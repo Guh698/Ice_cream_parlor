@@ -42,6 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
     smoother.paused(false);
   }
 
+  gsap.to(".ticker", {
+    xPercent: -50,
+    ease: "none",
+    duration: 10,
+    repeat: -1,
+  });
+
   function loadingScreen() {
     gsap.to(".donut img", {
       rotation: 360,
@@ -296,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.to(".hero-menu-btn", {
     opacity: 1,
     pointerEvents: "auto",
-    duration: 4,
+    duration: 2,
   });
 
   if (!isMobile()) {
@@ -334,13 +341,6 @@ document.addEventListener("DOMContentLoaded", () => {
   tl2.to(".card1", {
     rotate: 0,
     duration: 2,
-  });
-
-  gsap.to(".ticker", {
-    xPercent: -50,
-    ease: "none",
-    duration: 10,
-    repeat: -1,
   });
 
   if (!isMobile()) {
