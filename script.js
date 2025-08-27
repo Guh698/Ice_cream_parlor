@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tl.to(".hero", {
     duration: 2,
-    backgroundColor: "#dd5be1",
+    backgroundColor: "transparent",
   });
 
   tl.to(
