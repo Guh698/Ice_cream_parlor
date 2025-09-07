@@ -131,6 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
           opacity: 0,
         },
         "-=0.8"
+      )
+      .to(
+        "header",
+        {
+          opacity: 1,
+        },
+        "<"
       );
   }
 

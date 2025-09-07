@@ -69,7 +69,7 @@ body {
   }
 
   .loading-screen {
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,6 +79,7 @@ body {
     height: 100dvh;
     width: 100%;
     background-color: var(--color-peru-pink);
+    z-index: 999;
   }
 
   .loading-screen-dark-content {
@@ -134,6 +135,7 @@ body {
 
   header {
     pointer-events: none;
+    opacity: 0;
   }
 
   header nav {
